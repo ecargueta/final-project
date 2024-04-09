@@ -48,12 +48,22 @@ class Recommendation:
       pass
 
   def read_file():
-      """
+      """once the user inputs all of the recommendations they want, 
+      this function will read the file and output the suggessted recommendation(s).
+      
+      Args:
+      album_file(str): path to album recommnedation(s) file
+      song_file(str): path to song recommendaiton(s) file
+      artist_file(str): path to artist recommendaiton(s) file
+      
       """
       pass
 
   def main():
-      """
+      """ Will open the text_file or specifc recommendation(s) based on the user's input and desired output
+      
+      Args: 
+      path: Gets the paths to the text_file
       
       Return:
         a tuple containing the wanted type of recommendation by the user and then
@@ -62,9 +72,14 @@ class Recommendation:
       pass
 
   def parse_args():
-      """
+      """Parse command-line arguments.
+      
+      Args:Args:
+        arglist (list of str): list of arguments from the command line.
       """
       pass
 
   if __name__== "main":
-      pass
+    """"Will print the recommendations to the user
+    """
+  pass
