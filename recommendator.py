@@ -1,3 +1,5 @@
+import pandas as pd
+import random as rand
 
 class Recommendation:
   """ A class that holds the song, album, artist recommendation per to the user's input.
