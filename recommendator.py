@@ -1,5 +1,6 @@
 import pandas as pd
 import random as rand
+from argparse import ArgumentParser
 
 class Recommendation:
   """ A class that holds the song, album, artist recommendation per to the user's input.
@@ -32,14 +33,20 @@ class Recommendation:
       albums_list = df["Album"].tolist()
       return rand.choice(albums_list)
 
-  def get_song(song_text):
+  def get_song(songs_text):
+    
       """ If the user inputs that they want a song recommended, this function will
       select a random song based from the song file.
       
       Args:
         song_text: text file to parse for recommended song
       """
-      pass
+      df = pd.read_csv("songs.csv")
+      song_list = df["name"].tolist()
+      return rand.choice(song_list)
+    
+      
+      
 
   def get_artist(artist_text):
       """ If the user inputs that they want a artist recommended, this function will
@@ -88,7 +95,11 @@ class Recommendation:
       Args:Args:
         arglist (list of str): list of arguments from the command line.
       """
-      pass
+      parser =  ArgumentParser()
+      parser.add_argument("Album",type=str, help= "stored data")
+      parser.add_argument("name", type=str, help= "stored data")
+      parser.add_argument("", type=str, help= "stored data")
+      return parser.parse_args()
 
   if __name__== "main":
     """"Will print the recommendations to the user
