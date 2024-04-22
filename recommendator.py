@@ -49,7 +49,7 @@ class Recommendation:
       """
       pass
 
-  def read_file():
+  def read_file(self):
       """once the user inputs all of the recommendations they want, 
       this function will read the file and output the suggessted recommendation(s).
       
@@ -59,7 +59,14 @@ class Recommendation:
       artist_file(str): path to artist recommendaiton(s) file
       
       """
-      pass
+      wanted_recommedation = self.user_input()
+      if wanted_recommedation == "song":
+        output_recommedation = self.get_song()
+      elif wanted_recommedation == "artist":
+        output_recommedation = self.get_artist()
+      elif wanted_recommedation == "album":
+        output_recommedation = self.get_album()
+      return output_recommedation
 
   def main():
       """ Will open the text_file or specifc recommendation(s) based on the user's input and desired output
