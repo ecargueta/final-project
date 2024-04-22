@@ -28,7 +28,9 @@ class Recommendation:
       Args:
         album_text: text file to parse for recommended album
       """
-      pass
+      df = pd.read_csv(album_text)
+      albums_list = df["Album"].tolist()
+      return rand.choice(albums_list)
 
   def get_song(song_text):
       """ If the user inputs that they want a song recommended, this function will
