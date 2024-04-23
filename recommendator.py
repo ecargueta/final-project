@@ -3,14 +3,18 @@ import random as rand
 from argparse import ArgumentParser
 
 class Recommendation:
-  """ A class that holds the song, album, artist recommendation per to the user's input.
-  """
+  """ A class that holds the song, album, artist recommendation per to the user's input."""
+  
+  
+  
   def __init__(self):
       """ Should define the necessary attributes to their corresponding values.
       """
-      pass
+      self.genre = None
+      self.recommendation_type = None
+      
 
-  def user_input():
+  def user_input(self):
       """ The user will be prompt with a message that asks them to first input 
       genre of music. They will then be asked to input the type of music they want,
       either album, song, or artist. 
@@ -20,7 +24,13 @@ class Recommendation:
       Return:
         return user input
       """
-      pass
+      
+      self.genre = input("Enter the genre of music: ")
+      self.recommendation_type = input("What type of music do you want? (album, song, or artist): ")
+      return self.genre, self.recommendation_type
+
+      
+  
 
   def get_album(album_text):
       """ If the user inputs that they want a album recommended, this function will
