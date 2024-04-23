@@ -30,8 +30,6 @@ class Recommendation:
       return self.genre, self.recommendation_type
 
       
-  
-
   def get_album(album_text):
       """ If the user inputs that they want a album recommended, this function will
       select a random album based from the album file.
@@ -52,7 +50,7 @@ class Recommendation:
         song_text: text file to parse for recommended song
       """
       df = pd.read_csv("songs.csv")
-      song_list = df["name"].tolist()
+      song_list = df["title"].tolist()
       return rand.choice(song_list)
     
       
@@ -107,7 +105,7 @@ class Recommendation:
       """
       parser =  ArgumentParser()
       parser.add_argument("album_csv",type=str, help= "stored data")
-      parser.add_argument("song_csv", type=str, help= "stored data")
+      parser.add_argument("songs_csv", type=str, help= "stored data")
       parser.add_argument("Artist_csv", type=str, help= "stored data")
       return parser.parse_args()
 
