@@ -3,14 +3,18 @@ import random as rand
 from argparse import ArgumentParser
 
 class Recommendation:
-  """ A class that holds the song, album, artist recommendation per to the user's input.
-  """
+  """ A class that holds the song, album, artist recommendation per to the user's input."""
+  
+  
+  
   def __init__(self):
       """ Should define the necessary attributes to their corresponding values.
       """
-      pass
+      self.genre = None
+      self.recommendation_type = None
+      
 
-  def user_input():
+  def user_input(self):
       """ The user will be prompt with a message that asks them to first input 
       genre of music. They will then be asked to input the type of music they want,
       either album, song, or artist. 
@@ -20,8 +24,12 @@ class Recommendation:
       Return:
         return user input
       """
-      pass
+      
+      self.genre = input("Enter the genre of music: ")
+      self.recommendation_type = input("What type of music do you want? (album, song, or artist): ")
+      return self.genre, self.recommendation_type
 
+      
   def get_album(album_text):
       """ If the user inputs that they want a album recommended, this function will
       select a random album based from the album file.
@@ -42,7 +50,7 @@ class Recommendation:
         song_text: text file to parse for recommended song
       """
       df = pd.read_csv("songs.csv")
-      song_list = df["name"].tolist()
+      song_list = df["title"].tolist()
       return rand.choice(song_list)
     
       
@@ -99,9 +107,9 @@ class Recommendation:
         arglist (list of str): list of arguments from the command line.
       """
       parser =  ArgumentParser()
-      parser.add_argument("Album",type=str, help= "stored data")
-      parser.add_argument("name", type=str, help= "stored data")
-      parser.add_argument("", type=str, help= "stored data")
+      parser.add_argument("album_csv",type=str, help= "stored data")
+      parser.add_argument("songs_csv", type=str, help= "stored data")
+      parser.add_argument("Artist_csv", type=str, help= "stored data")
       return parser.parse_args()
 
   if __name__== "main":
