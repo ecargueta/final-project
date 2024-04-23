@@ -56,7 +56,10 @@ class Recommendation:
         artist_text: text file to parse for recommended artist
         
       """
-      pass
+      df = pd.read_csv(artist_text, usecols = ['Artist','artist_count','bpm'])
+      artist_name = df['Artist'].str.split(',', expand=True)[0]#gets single artist and removes the features
+      artist_list = artist_name.tolist()
+      return rand.choice(artist_list)
 
   def read_file(self):
       """once the user inputs all of the recommendations they want, 
