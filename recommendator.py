@@ -106,9 +106,9 @@ class Recommendation:
         arglist (list of str): list of arguments from the command line.
       """
       parser =  ArgumentParser()
-      parser.add_argument("Album",type=str, help= "stored data")
-      parser.add_argument("name", type=str, help= "stored data")
-      parser.add_argument("", type=str, help= "stored data")
+      parser.add_argument("album_csv",type=str, help= "stored data")
+      parser.add_argument("song_csv", type=str, help= "stored data")
+      parser.add_argument("Artist_csv", type=str, help= "stored data")
       return parser.parse_args()
 
   if __name__== "main":
