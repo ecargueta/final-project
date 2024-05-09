@@ -60,7 +60,6 @@ class Recommendation:
         Return:
         return user input
         """
-        
         self.genre = input("Enter the genre of music: ")
         self.recommendation_type = input("What type of music do you want? (album, song, or artist): ")
         return self.genre, self.recommendation_type
@@ -120,22 +119,25 @@ class Recommendation:
       artist_file(str): path to artist recommendaiton(s) file
       
         """
-        Desired_Genre,Desired_recommedation = self.user_input()
-        if Desired_recommedation == "song" and Desired_Genre == "any":
-            output_recommendation = self.get_song()
-        elif Desired_recommedation == "artist" and Desired_Genre == "any":
-            output_recommendation = self.get_artist()
-        elif Desired_recommedation == "album" and Desired_Genre == "any":
-            output_recommendation = self.get_album()
-        else:
-            if Desired_Genre in SongDir.keys():
-                recommendations = SongDir[Desired_Genre][Desired_recommedation]
-                if recommendations: 
-                    output_recommendation = rand.choice(recommendations)
-                else :
-                    print("the genre is nonexistent")
+        try:
+            Desired_Genre,Desired_recommedation = self.user_input()
+            if Desired_recommedation == "song" and Desired_Genre == "any":
+                output_recommendation = self.get_song()
+            elif Desired_recommedation == "artist" and Desired_Genre == "any":
+                output_recommendation = self.get_artist()
+            elif Desired_recommedation == "album" and Desired_Genre == "any":
+                output_recommendation = self.get_album()
+            else:
+                
+                    if Desired_Genre in SongDir.keys():
+                        recommendations = SongDir[Desired_Genre][Desired_recommedation]
+                        if recommendations: 
+                            output_recommendation = rand.choice(recommendations)
+            return output_recommendation
+        except :
+                print("the genre is nonexistent in our library")
 
-        return output_recommendation   
+           
     
         
     def main(self):
