@@ -48,6 +48,7 @@ class Recommendation:
         """
         self.genre = None
         self.recommendation_type = None
+        self.genre_list = None
 
 
     def user_input(self):
@@ -60,9 +61,10 @@ class Recommendation:
         Return:
         return user input
         """
-        self.genre = input("Enter the genre of music: ")
+        genre_list = rand.sample(list(SongDir.keys()), 4)
+        self.genre = input(f"Here are some genres to consider: {', '.join(genre_list)}\nEnter the genre of music: ")
         self.recommendation_type = input("What type of music do you want? (album, song, or artist): ")
-        return self.genre, self.recommendation_type
+        return self.genre.lower(), self.recommendation_type.lower()
     
     def get_album(self):
         """ If the user inputs that they want a album recommended, this function will
@@ -135,7 +137,7 @@ class Recommendation:
                             output_recommendation = rand.choice(recommendations)
             return output_recommendation
         except :
-                print("the genre is nonexistent in our library")
+                print("You may have selected a recommendation type or genre that does not exist.")
 
            
     
