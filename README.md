@@ -12,4 +12,4 @@ To create the program, the only outside source that was used was Kaggle in order
 to get a csv file that could be applied to the program.
 
 Bibliography
-Kaggle (n.d.) https://www.kaggle.com/search?q=artist+csv+file
+Kapadnis, S. (2023 October). Spotify Songs. Kaggle. https://www.kaggle.com/search?q=artist+csv+file
